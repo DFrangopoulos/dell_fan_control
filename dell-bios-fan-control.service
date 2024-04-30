@@ -1,0 +1,9 @@
+[Unit]
+Description=Turn off bios control of fans
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/dell-bios-fan-control 0
+
+[Install]
+WantedBy=multi-user.target

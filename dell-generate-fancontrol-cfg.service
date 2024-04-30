@@ -1,0 +1,9 @@
+[Unit]
+Description=Regenerate fancontrol config
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/dell-generate-fancontrol-config.sh
+
+[Install]
+WantedBy=multi-user.target

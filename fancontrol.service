@@ -1,0 +1,16 @@
+[Unit]
+Description=fan speed regulator
+# Run pwmconfig to create this file.
+ConditionFileNotEmpty=/etc/fancontrol
+After=lm-sensors.service
+Documentation=man:fancontrol(8) man:pwmconfig(8)
+Requires=dell-bios-fan-control.service
+Requires=dell-generate-fancontrol-cfg.service
+
+[Service]
+ExecStartPre=/usr/sbin/fancontrol --check
+ExecStart=/usr/sbin/fancontrol
+PIDFile=/run/fancontrol.pid
+
+[Install]
+WantedBy=multi-user.target

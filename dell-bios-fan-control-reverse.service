@@ -1,0 +1,10 @@
+[Unit]
+Description=Turn fan control back over to bios at shutdown, in case of windows boot, or i8k >
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStop=/usr/bin/dell-bios-fan-control 1
+
+[Install]
+WantedBy=multi-user.target
